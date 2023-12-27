@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
-const config = {
+const nextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
   poweredByHeader: false,
   experimental: { typedRoutes: true },
 };
 
-export default config;
+module.exports = nextConfig;
