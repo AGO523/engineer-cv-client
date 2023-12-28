@@ -25,7 +25,7 @@ docker compose up -d
 ### 3. Install modules
 
 ```shell
-npm install
+docker compose run --rm app npm install
 ```
 
 ### 4. Access localhost
