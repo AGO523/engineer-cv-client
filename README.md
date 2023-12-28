@@ -22,7 +22,13 @@ docker compose up
 docker compose up -d
 ```
 
-### 3. Access localhost
+### 3. Install modules
+
+```shell
+npm install
+```
+
+### 4. Access localhost
 
 ```shell
 open http://localhost:3030
