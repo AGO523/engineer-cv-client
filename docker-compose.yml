@@ -8,9 +8,6 @@ services:
       - type: bind
         source: .
         target: /app
-      - type: volume
-        source: node_modules
-        target: /app/node_modules
     environment:
       - WATCHPACK_POLLING=true
       - NODE_ENV=development
@@ -19,5 +16,3 @@ services:
     command: npm run dev
     ports:
       - '3030:3000' # To avoid port conflict with api.
-volumes:
-  node_modules:
