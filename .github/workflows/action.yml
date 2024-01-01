@@ -38,6 +38,7 @@ jobs:
           IMAGE=${{ env.REGION }}-docker.pkg.dev/${{ env.GOOGLE_PROJECT_ID }}/${{ env.GOOGLE_PROJECT_ID }}-client-docker-repository/client:latest
           docker pull ${IMAGE} || true
           docker build \
+            -f Dockerfile.prod \
             --cache-from ${IMAGE} \
             -t ${IMAGE} .
           docker push ${IMAGE}
