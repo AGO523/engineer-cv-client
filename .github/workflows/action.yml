@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - feature/update-github-actions
+      - main
 
 env:
   GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
@@ -45,4 +45,3 @@ jobs:
             --region ${{ env.REGION }} \
             --image ${{ env.REGION }}-docker.pkg.dev/${{ env.GOOGLE_PROJECT_ID }}/${{ env.GOOGLE_PROJECT_ID }}-client-docker-repository/client:latest \
             --platform managed
-
