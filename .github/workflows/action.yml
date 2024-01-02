@@ -45,3 +45,4 @@ jobs:
             --region ${{ env.REGION }} \
             --image ${{ env.REGION }}-docker.pkg.dev/${{ env.GOOGLE_PROJECT_ID }}/${{ env.GOOGLE_PROJECT_ID }}-client-docker-repository/client:latest \
             --platform managed
+
