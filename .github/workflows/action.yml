@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - feature/setup-github-actions # TODO: change to main
+      - main
 
 env:
   GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
