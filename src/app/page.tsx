@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../../api-config';
 
 const Home: React.FC = () => {
   const [message, setMessage] = useState<string>('');
 
   const fetchMessage = () => {
-    fetch('http://localhost:3000/hello')
+    fetch(`${API_BASE_URL}/hello`)
       .then(response => response.json())
       .then(data => setMessage(data.message))
       .catch(error => console.error('Error fetching data: ', error));
@@ -14,10 +15,10 @@ const Home: React.FC = () => {
 
   return (
     <main className='p-4'>
-      <h1 className='text-lg text-blue-600 mb-4'>Rails API Test</h1>
+      <h1 className='mb-4 text-lg text-blue-600'>Rails API Test</h1>
       <button 
         onClick={fetchMessage} 
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        className='rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700'
       >
         Fetch Message from Rails
       </button>
