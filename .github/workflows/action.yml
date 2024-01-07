@@ -44,4 +44,6 @@ jobs:
           gcloud run deploy ${{ env.SERVICE_NAME }} \
             --region ${{ env.REGION }} \
             --image ${{ env.REGION }}-docker.pkg.dev/${{ env.GOOGLE_PROJECT_ID }}/${{ env.GOOGLE_PROJECT_ID }}-client-docker-repository/client:latest \
-            --platform managed
+            --platform managed \
+            --update-env-vars NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }} \
+            --update-env-vars NEXT_PUBLIC_ENV=${{ secrets.NEXT_PUBLIC_ENV }}
