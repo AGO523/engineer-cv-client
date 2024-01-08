@@ -3,7 +3,8 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      # - main
+      - feature/modify-base-url
 
 env:
   GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
@@ -36,7 +37,8 @@ jobs:
           docker build \
             -f Dockerfile.prod \
             --cache-from ${IMAGE} \
-            -t ${IMAGE} .
+            -t ${IMAGE} . \
+            --build-arg NEXT_PUBLIC_ENV=${{ secrets.NEXT_PUBLIC_ENV }}
           docker push ${IMAGE}
 
       - name: Deploy to Cloud Run
@@ -45,5 +47,4 @@ jobs:
             --region ${{ env.REGION }} \
             --image ${{ env.REGION }}-docker.pkg.dev/${{ env.GOOGLE_PROJECT_ID }}/${{ env.GOOGLE_PROJECT_ID }}-client-docker-repository/client:latest \
             --platform managed \
-            --update-env-vars NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }} \
             --update-env-vars NEXT_PUBLIC_ENV=${{ secrets.NEXT_PUBLIC_ENV }}
