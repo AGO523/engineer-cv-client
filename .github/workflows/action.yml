@@ -3,8 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      # - main
-      - feature/modify-base-url
+      - main
 
 env:
   GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
